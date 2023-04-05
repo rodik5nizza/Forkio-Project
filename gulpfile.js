@@ -1,4 +1,5 @@
 import gulp from 'gulp';
+import gulp-gh-pages from 'gulp-gh-pages';
 import dartSass from 'sass';
 import gulpSass from 'gulp-sass';
 import clean from 'gulp-clean';
@@ -55,3 +56,8 @@ export const dev = () => {
         done()
     }))
 }
+
+const deploy = gulp.task('deploy', function () {
+  return gulp.src("./dist/**/*")
+    .pipe(deploy())
+});
